@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\adminProductController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [homeController::class,'index']);
+Route::get('/product', [productController::class,'index']);
+
+Route::get('/admin/product', [adminProductController::class,'index']);
+Route::get('/admin/product/edit', [adminProductController::class,'edit']);
